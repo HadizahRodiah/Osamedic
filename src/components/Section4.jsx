@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
-import styles from "./Section4.module.css";
 
 const Section4 = ({ className = "" }) => {
   const onLinkReadMoreClick = useCallback(() => {
@@ -8,177 +7,88 @@ const Section4 = ({ className = "" }) => {
   }, []);
 
   const onLinkReadMoreClick1 = useCallback(() => {
-    window.open(
-      "https://osamedic-records.b12sites.com/data-visualization-tools"
-    );
+    window.open("https://osamedic-records.b12sites.com/data-visualization-tools");
   }, []);
 
   const onLinkReadMoreClick2 = useCallback(() => {
-    window.open(
-      "https://osamedic-records.b12sites.com/report-retrieval-widgets"
-    );
+    window.open("https://osamedic-records.b12sites.com/report-retrieval-widgets");
   }, []);
 
   return (
-    <section className={[styles.section, className].join(" ")}>
-      <div className={styles.container}>
-        <div className={styles.container1}>
-          <div className={styles.containerInner}>
-            <div className={styles.ourPlatformFeaturesParent}>
-              <div className={styles.ourPlatformFeatures}>
-                Our platform features
-              </div>
-              <div className={styles.container2}>
-                <h2 className={styles.unleashingDataPotential}>
-                  Unleashing data potential
-                </h2>
-              </div>
+    <section className={`py-12 px-4 bg-gray-100 ${className}`}>
+      <div className="container mx-auto">
+        <div className="mb-8">
+          <h2 className="text-center text-2xl font-bold text-blue-600 mb-2">
+            Our platform features
+          </h2>
+          <h3 className="text-center text-3xl font-bold text-gray-800">
+            Unleashing data potential
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+            <img
+              className="w-full max-w-xs mb-4"
+              loading="lazy"
+              alt=""
+              src="/figure-1@2x.png"
+            />
+            <div className="text-center">
+              <a
+                className="text-blue-600 font-semibold hover:underline"
+                href="https://osamedic-records.b12sites.com/sales-dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sales dashboard
+              </a>
+              <p className="text-gray-600 mt-2">
+                Visualize your sales data like never before.
+              </p>
             </div>
           </div>
-          <div className={styles.list}>
-            <div className={styles.itemmargin}>
-              <div className={styles.item}>
-                <div
-                  className={styles.linkReadMore}
-                  onClick={onLinkReadMoreClick}
-                >
-                  <img
-                    className={styles.figureIcon}
-                    loading="lazy"
-                    alt=""
-                    src="/figure-1@2x.png"
-                  />
-                  <div className={styles.container3}>
-                    <div className={styles.container4}>
-                      <a
-                        className={styles.salesDashboard}
-                        href="https://osamedic-records.b12sites.com/sales-dashboard"
-                        target="_blank"
-                      >
-                        Sales dashboard 
-                      </a>
-                      <div className={styles.svg}>
-                        <img
-                          className={styles.frameIcon}
-                          loading="lazy"
-                          alt=""
-                          src="/frame.svg"
-                        />
-                      </div>
-                    </div>
-                    <div className={styles.container5}>
-                      <a
-                        className={styles.visualizeYourSalesContainer}
-                        href="https://osamedic-records.b12sites.com/sales-dashboard"
-                        target="_blank"
-                      >
-                        <p className={styles.visualizeYourSales}>
-                          Visualize your sales data like
-                        </p>
-                        <p className={styles.visualizeYourSales}>
-                          never before.
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+          <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+            <img
+              className="w-full max-w-xs mb-4"
+              loading="lazy"
+              alt=""
+              src="/figure-2@2x.png"
+            />
+            <div className="text-center">
+              <a
+                className="text-blue-600 font-semibold hover:underline"
+                href="https://osamedic-records.b12sites.com/data-visualization-tools"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Data visualization tools
+              </a>
+              <p className="text-gray-600 mt-2">
+                Transform complex data into clear visuals.
+              </p>
             </div>
-            <div className={styles.itemmargin1}>
-              <div className={styles.item}>
-                <div
-                  className={styles.linkReadMore}
-                  onClick={onLinkReadMoreClick1}
-                >
-                  <img
-                    className={styles.figureIcon}
-                    loading="lazy"
-                    alt=""
-                    src="/figure-2@2x.png"
-                  />
-                  <div className={styles.container3}>
-                    <div className={styles.container7}>
-                      <a
-                        className={styles.salesDashboard}
-                        href="https://osamedic-records.b12sites.com/data-visualization-tools"
-                        target="_blank"
-                      >
-                        Data visualization tools 
-                      </a>
-                      <div className={styles.svg}>
-                        <img
-                          className={styles.frameIcon}
-                          loading="lazy"
-                          alt=""
-                          src="/frame.svg"
-                        />
-                      </div>
-                    </div>
-                    <div className={styles.container5}>
-                      <a
-                        className={styles.visualizeYourSalesContainer}
-                        href="https://osamedic-records.b12sites.com/data-visualization-tools"
-                        target="_blank"
-                      >
-                        <p className={styles.visualizeYourSales}>
-                          Transform complex data into
-                        </p>
-                        <p className={styles.visualizeYourSales}>
-                          clear visuals.
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.itemmargin1}>
-              <div className={styles.item}>
-                <div
-                  className={styles.linkReadMore}
-                  onClick={onLinkReadMoreClick2}
-                >
-                  <img
-                    className={styles.figureIcon}
-                    loading="lazy"
-                    alt=""
-                    src="/figure-3@2x.png"
-                  />
-                  <div className={styles.container3}>
-                    <div className={styles.container10}>
-                      <a
-                        className={styles.salesDashboard}
-                        href="https://osamedic-records.b12sites.com/report-retrieval-widgets"
-                        target="_blank"
-                      >
-                        Report retrieval widgets 
-                      </a>
-                      <div className={styles.svg}>
-                        <img
-                          className={styles.frameIcon}
-                          loading="lazy"
-                          alt=""
-                          src="/frame.svg"
-                        />
-                      </div>
-                    </div>
-                    <div className={styles.container5}>
-                      <a
-                        className={styles.visualizeYourSalesContainer}
-                        href="https://osamedic-records.b12sites.com/report-retrieval-widgets"
-                        target="_blank"
-                      >
-                        <p className={styles.visualizeYourSales}>
-                          Quickly access detailed
-                        </p>
-                        <p className={styles.visualizeYourSales}>
-                          reports with ease.
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </div>
+
+          <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
+            <img
+              className="w-full max-w-xs mb-4"
+              loading="lazy"
+              alt=""
+              src="/figure-3@2x.png"
+            />
+            <div className="text-center">
+              <a
+                className="text-blue-600 font-semibold hover:underline"
+                href="https://osamedic-records.b12sites.com/report-retrieval-widgets"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Report retrieval widgets
+              </a>
+              <p className="text-gray-600 mt-2">
+                Quickly access detailed reports with ease.
+              </p>
             </div>
           </div>
         </div>

@@ -1,24 +1,20 @@
 import { useCallback, useState, useEffect } from "react";
 import FrameComponent from "./FrameComponent";
 import PropTypes from "prop-types";
-import styles from "./Section5.module.css";
 
 const Section5 = ({ className = "" }) => {
-  // State for form fields
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
 
-  // State for contact information
   const [contactInfo, setContactInfo] = useState({
     email: "",
     location: "",
     hours: [],
   });
 
-  // Fetch contact information from the backend when the component mounts
   useEffect(() => {
     fetch("http://localhost:4000/contact-info")
       .then((response) => response.json())
@@ -30,11 +26,9 @@ const Section5 = ({ className = "" }) => {
       });
   }, []);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prepare data for submission
     const formData = {
       name,
       email,
@@ -43,7 +37,6 @@ const Section5 = ({ className = "" }) => {
       consent,
     };
 
-    // Send form data to backend
     fetch("http://localhost:4000/submit-contact-form", {
       method: "POST",
       headers: {
@@ -54,7 +47,6 @@ const Section5 = ({ className = "" }) => {
       .then((response) => {
         if (response.ok) {
           alert("Form submitted successfully!");
-          // Clear the form fields after submission
           setName("");
           setEmail("");
           setPhone("");
@@ -79,152 +71,104 @@ const Section5 = ({ className = "" }) => {
   }, []);
 
   return (
-    <section className={[styles.section, className].join(" ")}>
-      <div className={styles.container}>
-        <div className={styles.container1}>
-          <div className={styles.container2}>
-            <div className={styles.container3}>
-              <div className={styles.getInTouchParent}>
-                <div className={styles.getInTouch}>Get in touch</div>
-                <div className={styles.container4}>
-                  <h2 className={styles.wedLoveToContainer}>
-                    <p className={styles.wedLoveTo}>We'd love to hear from</p>
-                    <p className={styles.wedLoveTo}>you</p>
-                  </h2>
-                </div>
-                <form onSubmit={handleSubmit}>
-                  <div className={styles.container5}>
-                    <div className={styles.label}>
-                      <div className={styles.name}>
-                        <span>{`Name `}</span>
-                        <span className={styles.span}>*</span>
-                      </div>
-                    </div>
-                    <div className={styles.input}>
-                      <input
-                        className={styles.container6}
-                        placeholder="Jane Smith"
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <FrameComponent
-                    emailAddress="Email address "
-                    containerPlaceholder="email@website.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <FrameComponent
-                    emailAddress="Phone number "
-                    containerPlaceholder="555-555-5555"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                  <div className={styles.messageParent}>
-                    <div className={styles.name}>Message</div>
-                    <textarea
-                      className={styles.textarea}
-                      rows={6}
-                      cols={20}
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                    />
-                  </div>
-                  <div className={styles.labelWrapper}>
-                    <div className={styles.label1}>
-                      <input
-                        className={styles.agreementBorder}
-                        type="checkbox"
-                        checked={consent}
-                        onChange={(e) => setConsent(e.target.checked)}
-                      />
-                      <div className={styles.iAllowThisContainer}>
-                        <p className={styles.wedLoveTo}>
-                          I allow this website to store my submission so
-                        </p>
-                        <p className={styles.wedLoveTo}>
-                          <span>{`they can respond to my inquiry. `}</span>
-                          <span className={styles.span}>*</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <button className={styles.button} type="submit">
-                    <div className={styles.submit}>Submit</div>
-                  </button>
-                </form>
+    <section className={`py-12 bg-gray-100 ${className}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap justify-between">
+          <div className="w-full lg:w-6/12 mb-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Get in touch</h2>
+            <p className="text-xl text-gray-600 mb-6">We'd love to hear from you</p>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Jane Smith"
+                  className="mt-1 p-2 block w-full border rounded-md shadow-sm"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
               </div>
-              <div className={styles.contactInfo}>
-                <div className={styles.container18}>
-                  <div className={styles.background1}>
-                    <div className={styles.getInTouchGroup}>
-                      <b className={styles.location}>Get in touch</b>
-                      <div className={styles.contactIcons}>
-                        <img
-                          className={styles.svgIcon}
-                          loading="lazy"
-                          alt=""
-                          src="/svg.svg"
-                        />
-                        <div
-                          className={styles.linkEmailUsAtAilemendani}
-                          onClick={onLinkEmailUsAtAilemendaniClick}
-                        >
-                          <a
-                            className={styles.ailemendaniel76gmailcom}
-                            href={`mailto:${contactInfo.email}`}
-                            target="_blank"
-                          >
-                            {contactInfo.email}
-                          </a>
-                          <div className={styles.horizontalDivider} />
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.getInTouchGroup}>
-                      <b className={styles.location}>Location</b>
-                      <div className={styles.svgParent}>
-                        <img
-                          className={styles.svgIcon}
-                          loading="lazy"
-                          alt=""
-                          src="/svg-1.svg"
-                        />
-                        <div
-                          className={styles.linkOurLocationAtLagos}
-                          onClick={onLinkOurLocationAtLagosClick}
-                        >
-                          <a
-                            className={styles.lagosLaNg}
-                            href="https://www.google.com/maps/place/Lagos+LA+NG"
-                            target="_blank"
-                          >
-                            {contactInfo.location}
-                          </a>
-                          <div className={styles.horizontalDivider1} />
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.container19}>
-                      <div className={styles.label}>
-                        <b className={styles.location}>Hours</b>
-                      </div>
-                      <div className={styles.orderedListWorkingHours}>
-                        {contactInfo.hours.map((hour, index) => (
-                          <div className={styles.item} key={index}>
-                            <div className={styles.monday}>{hour.day}</div>
-                            <div className={styles.am}>{hour.open}</div>
-                            <div className={styles.div}>–</div>
-                            <div className={styles.pm}>{hour.close}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <FrameComponent
+                emailAddress="Email address"
+                containerPlaceholder="email@website.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FrameComponent
+                emailAddress="Phone number"
+                containerPlaceholder="555-555-5555"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Message</label>
+                <textarea
+                  rows={6}
+                  placeholder="Your message..."
+                  className="mt-1 p-2 block w-full border rounded-md shadow-sm"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  className="mr-2"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                />
+                <span className="text-sm">
+                  I allow this website to store my submission so they can respond to my inquiry.{" "}
+                  <span className="text-red-500">*</span>
+                </span>
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+
+          <div className="w-full lg:w-5/12">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Contact Information</h3>
+              <div className="mb-4">
+                <h4 className="font-semibold text-gray-700">Email</h4>
+                <p
+                  className="text-blue-600 cursor-pointer hover:underline"
+                  onClick={onLinkEmailUsAtAilemendaniClick}
+                >
+                  {contactInfo.email || "Loading..."}
+                </p>
+              </div>
+              <div className="mb-4">
+                <h4 className="font-semibold text-gray-700">Location</h4>
+                <p
+                  className="text-blue-600 cursor-pointer hover:underline"
+                  onClick={onLinkOurLocationAtLagosClick}
+                >
+                  {contactInfo.location || "Loading..."}
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-700">Hours</h4>
+                <ul className="space-y-2">
+                  {contactInfo.hours.length > 0
+                    ? contactInfo.hours.map((hour, index) => (
+                        <li key={index} className="flex justify-between">
+                          <span>{hour.day}</span>
+                          <span>
+                            {hour.open} - {hour.close}
+                          </span>
+                        </li>
+                      ))
+                    : "Loading..."}
+                </ul>
               </div>
             </div>
           </div>

@@ -1,61 +1,45 @@
 import PropTypes from "prop-types";
-import styles from "./Section1.module.css";
 import { Link } from "react-router-dom";
 
 const Section1 = ({ className = "" }) => {
   return (
-    <div className={[styles.section, className].join(" ")}>
-      <div className={styles.container}>
-        <div className={styles.container1}>
-          <div className={styles.container2}>
-            <div className={styles.link}>
-              <a
-                className={styles.osamedicRecords}
-                href="/"
-                target="_blank"
-              >
-                Osamedic Records
-              </a>
-            </div>
-            <div className={styles.navMain}>
-              <div className={styles.list}>
-                <div className={styles.itemmargin}>
-                  <div className={styles.item}>
-                    <div className={styles.link1}>
-                      <Link to='/' className={styles.home}>Home</Link>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.itemmargin}>
-                  <div className={styles.item}>
-                    <div className={styles.link1}>
-                      <Link to="/profile" className={styles.about}>About</Link>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.itemmargin}>
-                  <div className={styles.item}>
-                    <div className={styles.link1}>
-                      <Link to='/register' className={styles.services}>Services</Link>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.itemmargin3}>
-                  <button className={styles.item3}>
-                    <div className={styles.link4}>
-                      <Link
-                        className={styles.contact}
-                        href="https://osamedic-records.b12sites.com/index#contact"
-                        target="_blank"
-                      >
-                        Contact
-                      </Link>
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className={`bg-white shadow-md py-4 ${className}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <a
+            href="/"
+            target="_blank"
+            className="text-xl font-bold text-blue-600 hover:text-blue-700"
+          >
+            Osamedic Records
+          </a>
+          <nav className="flex space-x-8">
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-blue-600 transition"
+            >
+              Home
+            </Link>
+            <Link
+              to="/profile"
+              className="text-gray-700 hover:text-blue-600 transition"
+            >
+              About
+            </Link>
+            <Link
+              to="/register"
+              className="text-gray-700 hover:text-blue-600 transition"
+            >
+              Services
+            </Link>
+            <a
+              href="https://osamedic-records.b12sites.com/index#contact"
+              target="_blank"
+              className="text-gray-700 hover:text-blue-600 transition"
+            >
+              Contact
+            </a>
+          </nav>
         </div>
       </div>
     </div>

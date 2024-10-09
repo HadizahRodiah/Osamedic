@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AcceptedPatients.css';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const AcceptedPatients = () => {
   const [patients, setPatients] = useState([]);
@@ -23,11 +22,11 @@ const AcceptedPatients = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-center text-lg">Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="text-center text-red-600">{error}</div>;
   }
 
   const handleRowClick = (patient) => {
@@ -35,32 +34,32 @@ const AcceptedPatients = () => {
   };
 
   return (
-    <div className="patient-container">
-      <h2>Accepted Patients</h2>
-      <table className="patient-details-table">
+    <div className="container mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4">Accepted Patients</h2>
+      <table className="min-w-full border-collapse border border-gray-300">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Test Type</th>
-            <th>Status</th>
+          <tr className="bg-gray-200">
+            <th className="border border-gray-300 px-4 py-2">ID</th>
+            <th className="border border-gray-300 px-4 py-2">First Name</th>
+            <th className="border border-gray-300 px-4 py-2">Last Name</th>
+            <th className="border border-gray-300 px-4 py-2">Date of Birth</th>
+            <th className="border border-gray-300 px-4 py-2">Email</th>
+            <th className="border border-gray-300 px-4 py-2">Phone</th>
+            <th className="border border-gray-300 px-4 py-2">Test Type</th>
+            <th className="border border-gray-300 px-4 py-2">Status</th>
           </tr>
         </thead>
         <tbody>
           {patients.map(patient => (
-            <tr key={patient.id} onClick={() => handleRowClick(patient)}>
-              <td>{patient.id}</td>
-              <td>{patient.first_name}</td>
-              <td>{patient.last_name}</td>
-              <td>{patient.dob}</td>
-              <td>{patient.email}</td>
-              <td>{patient.phone}</td>
-              <td>{patient.test_type}</td>
-              <td>{patient.status}</td>
+            <tr key={patient.id} className="hover:bg-gray-100 cursor-pointer" onClick={() => handleRowClick(patient)}>
+              <td className="border border-gray-300 px-4 py-2">{patient.id}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.first_name}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.last_name}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.dob}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.email}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.phone}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.test_type}</td>
+              <td className="border border-gray-300 px-4 py-2">{patient.status}</td>
             </tr>
           ))}
         </tbody>
